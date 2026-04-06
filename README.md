@@ -27,30 +27,17 @@ The goal of the application is to allow users to track their workouts, monitor t
 - Passlib (bcrypt)
 
 ## Project Structure
-├── backend
-│   ├── app
-│   │   ├── core
-│   │   │   ├── config.py
-│   │   │   ├── dependencies.py
-│   │   │   └── security.py
-│   │   ├── db
-│   │   │   ├── base.py
-│   │   │   └── session.py
-│   │   ├── models
-│   │   │   └── user.py
-│   │   ├── routers
-│   │   │   ├── auth.py
-│   │   │   └── users.py
-│   │   ├── schemas
-│   │   │   └── user.py
-│   │   ├── services
-│   │   │   └── auth_service.py
-│   │   └── main.py
-│   ├── .env.example
-│   └── requirements.txt
-├── frontend
-├── .gitignore
-└── README.md
+backend/
+├── app/
+│ ├── core/ # config, security, dependencies
+│ ├── db/ # database setup
+│ ├── models/ # SQLAlchemy models
+│ ├── schemas/ # Pydantic schemas
+│ ├── services/ # business logic
+│ ├── routers/ # API routes
+│ └── main.py
+├── .env.example
+└── requirements.txt
 
 ## Installation
 
