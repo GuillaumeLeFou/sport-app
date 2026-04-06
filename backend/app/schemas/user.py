@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr, ConfigDict, Field
+from datetime import date
 
 class UserCreate(BaseModel):
     email: EmailStr
@@ -7,6 +8,7 @@ class UserCreate(BaseModel):
     first_name: str
     last_name: str
     age: int
+    birthday: date
     weight: float
     height: float
 
@@ -21,6 +23,7 @@ class UserResponse(BaseModel):
     first_name: str
     last_name: str
     age: int
+    birthday: date
     weight: float
     height: float
 

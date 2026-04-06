@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Float
+from sqlalchemy import Column, Integer, String, DateTime, Float, Date
 from app.db.base import Base
 from datetime import datetime
 
@@ -10,6 +10,7 @@ class User(Base):
     username = Column(String, unique=True, nullable=False)
     first_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
+    birthday = Column(Date, nullable=False)
     age = Column(Integer)
     weight = Column(Float)
     height = Column(Float)

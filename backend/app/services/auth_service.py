@@ -21,6 +21,7 @@ def create_user(db: Session, user_data: UserCreate):
         first_name = user_data.first_name,
         last_name = user_data.last_name,
         age = user_data.age,
+        birthday = user_data.birthday,
         weight = user_data.weight,
         height = user_data.height,
         created_at = datetime.utcnow()
