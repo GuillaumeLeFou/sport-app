@@ -6,6 +6,7 @@ export default function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate();
+    const [alertMessage, setAlertMessage] = useState("");
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -29,7 +30,7 @@ export default function Login() {
 
         } catch (error) {
             console.log("Login failed", error);
-            alert("Invalid credentials")
+            setAlertMessage("Invalid credentials")
         }
     }
 
@@ -46,6 +47,12 @@ export default function Login() {
                             Login to access your dashboard
                         </p>
                     </div>
+
+                    {alertMessage && (
+                        <div className="w-full md:col-span-2 rounded-xl px-4 py-3 text-sm font-medium border bg-red-400/10 border-red-400 text-red-400">
+                            {alertMessage}
+                        </div>
+                    )}
 
                     <div className="flex flex-col gap-2">
                         <label htmlFor="email" className="text-sm font-medium text-stone-300">
