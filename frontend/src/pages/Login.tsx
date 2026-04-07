@@ -54,6 +54,7 @@ export default function Login() {
                 />
 
                 <button type="submit" className="bg-blue-500 text-white rounded-md p-2">Login</button>
+                <button type="button" onClick={() => navigate("/register")} className="bg-green-500 text-white rounded-md p-2">Register</button>
             </form>
         </div>
     );
