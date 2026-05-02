@@ -5,5 +5,5 @@ routine_exercises = Table(
     "routine_exercises",
     Base.metadata,
     Column("routine_id", Integer, ForeignKey("routines.id")),
-    Column("exercise_id", Integer, ForeignKey("exercises.id")),
+    Column("exercise_id", Integer, ForeignKey("exercises.id"))
 )

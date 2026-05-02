@@ -42,7 +42,7 @@ export default function Login() {
                     className="bg-stone-900/80 backdrop-blur-md border border-stone-700 shadow-2xl rounded-2xl p-8 flex flex-col gap-5"
                 >
                     <div className="text-center">
-                        <h1 className="text-3xl font-bold text-green-400">Welcome back</h1>
+                        <h1 className="text-3xl font-bold text-green-400">Welcome</h1>
                         <p className="text-stone-400 mt-2 text-sm">
                             Login to access your dashboard
                         </p>

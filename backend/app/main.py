@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from app.routers.auth import router as auth_router
 from app.routers.users import router as users_router
 from app.routers.routines import router as routines_router
+from app.routers.exercises import router as exercises_router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -27,3 +28,4 @@ Base.metadata.create_all(bind=engine)
 app.include_router(auth_router)
 app.include_router(users_router)
 app.include_router(routines_router)
+app.include_router(exercises_router)
