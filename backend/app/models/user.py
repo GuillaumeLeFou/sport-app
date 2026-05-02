@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, Float, Date
 from app.db.base import Base
 from datetime import datetime
+from sqlalchemy.orm import relationship
 
 class User(Base):
     __tablename__ = "users"
@@ -15,3 +16,4 @@ class User(Base):
     weight = Column(Float)
     height = Column(Float)
     created_at = Column(DateTime, default=datetime.utcnow)
+    routines = relationship("Routine", back_populates="user")
