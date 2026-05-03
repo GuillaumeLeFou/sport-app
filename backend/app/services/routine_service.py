@@ -19,3 +19,28 @@ def create_routine(db: Session, user_id: int, data: RoutineCreate):
 
 def get_user_routines(db: Session, user_id: int):
     return db.query(Routine).filter(Routine.user_id == user_id).all()
+
+def update_routine(db: Session, user_id: int, routine_id: int, data: RoutineCreate):
+    routine = db.query(Routine).filter(Routine.id == routine_id).first()
+
+    if not routine:
+        raise HTTPException(status_code=404, detail="Routine not found")
+
+    routine.name = data.name
+    routine.description = data.description
+
+    db.commit()
+    db.refresh(routine)
+
+    return routine
+
+def delete_routine(db: Session, user_id: int, routine_id: int):
+    routine = db.query(Routine).filter(Routine.id == routine_id).first()
+
+    if not routine:
+        raise HTTPException(status_code=404, detail="Routine not found")
+
+    db.delete(routine)
+    db.commit()
+
+    return routine

@@ -30,3 +30,34 @@ def get_user_exercises(db: Session, user_id: int):
 
 def get_exercise(db: Session, id: int):
     return db.query(Exercise).filter(Exercise.id == id).first()
+
+def update_exercise(db: Session, user_id: int, exercise_id: int, data: ExerciseCreate):
+    exercise = db.query(Exercise).filter(Exercise.id == exercise_id).first()
+
+    if not exercise:
+        raise HTTPException(status_code=404, detail="Exercise not found")
+
+    exercise.name = data.name
+    exercise.description = data.description
+    exercise.instructions = data.instructions
+    exercise.muscle_group = data.muscle_group
+    exercise.exercise_type = data.exercise_type
+    exercise.equipment_needed = data.equipment_needed
+    exercise.global_exercise = data.global_exercise
+
+    db.commit()
+    db.refresh(exercise)
+
+    return exercise
+
+def delete_exercise(db: Session, user_id: int, exercise_id: int):
+    exercise = db.query(Exercise).filter(Exercise.id == exercise_id).first()
+
+    if not exercise:
+        raise HTTPException(status_code=404, detail="Exercise not found")
+
+    db.delete(exercise)
+    db.commit()
+
+    return exercise
+
